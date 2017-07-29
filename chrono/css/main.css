@@ -375,3 +375,40 @@ body {
 }
 
 /* ------------------------------------------------------------------------------ */
+
+@media (max-width: 768px) {
+  .synopsis-container {
+    flex-direction: column;
+  }
+
+  .synopsis-container p {
+    margin: 10px 0;
+    font-size: 12px;
+  }
+
+  .movie-container h3 {
+    margin-top: -5px;
+  }
+
+  .movie-container h1 {
+    font-size: 13px;
+  }
+
+  .movies ol {
+    padding: 10px;
+  }
+
+  .movies ol li::before {
+    content: counter(step-counter);
+    /* margin-right: 20px; */
+    font-size: 70%;
+    background-color: rgb(180, 180, 180);
+    color: white;
+    font-weight: bold;
+    padding: 2px 5px;
+    border-radius: 11px;
+    position: absolute;
+    top: 22px;
+    left: -9px;
+  }
+}

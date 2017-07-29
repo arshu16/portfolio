@@ -832,13 +832,13 @@ window.ChronosTimeline = function ChronosTimeline(target) {
         return e.year; // Value of the text
       })
       .attr('x', function() {
-        return e.x - 3 * selectedNodeRadius - this.getBBox().width - gutter;
+        return e.x - selectedNodeRadius; /*- 3 * selectedNodeRadius - this.getBBox().width - gutter;*/
       })
       .attr('y', function() {
-        return e.y - 10;
+        return e.y - selectedNodeRadius;
       })
       .style('fill', '#e0a5ef')
-      .style('font-size', '23px');
+      .style('font-size', '16px');
     window.requestAnimationFrame(fillUpMovies.bind(this, e.year));
   }
 

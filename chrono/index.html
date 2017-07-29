@@ -6,10 +6,10 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>ISB</title>
     <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
     <meta http-equiv="Pragma" content="no-cache" />
     <meta http-equiv="Expires" content="0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600" rel="stylesheet">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
@@ -24,20 +24,25 @@
         <![endif]-->
     <div class="header-container">
         <a class="back-to-home" href="http://www.ishmeetsinghbindra.com">Ishmeet Singh Bindra</a>
-        <div>Demos</div>
+        <div>Chronological Top 10 titles of the years (IMDB)</div>
     </div>
     <div class="main">
-        <ol>
-            <li>
-                <a href="http://www.ishmeetsinghbindra.com/chrono">
-                    <h4>Chronological viewer</h4>
-                </a>
-                <p>A page with D3 force graph which shows top 10 titles scrapped from IMDB with the help of <i> https://github.com/arshu16/imdbScraper</i>.</i>
-                </p>
-            </li>
-        </ol>
+        <div class="chronos"></div>
+        <div class="movies"></div>
     </div>
+    <script src='https://d3js.org/d3.v4.js'></script>
     <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript">
+        //Wait for all resources to be downloaded
+        window.addEventListener('load', init);
+
+        function init() {
+            var canvas = document.querySelector('.main .chronos');
+            var chronos = new ChronosTimeline(canvas);
+            chronos.init();
+            chronos.render();
+        }
+    </script>
     <script>
         window.ga = window.ga || function () { (ga.q = ga.q || []).push(arguments) }; ga.l = +new Date;
         ga('create', 'UA-102379311-1', 'auto');

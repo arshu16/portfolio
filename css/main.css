@@ -806,7 +806,7 @@ body {
   color: #a3a3a3;
   margin: 0;
   line-height: 43px;
-  margin-top: 27px;
+  margin-top: 0;
 }
 
 .info-container .my-email > a {
@@ -849,6 +849,35 @@ body {
   font-size: 18px;
 }
 
+
+.info-container .experience {
+    display: flex;
+    flex-direction: column;
+    margin: 10px 0;
+}
+
+.info-container .experience > p {
+  color: white;
+  font-size: 18px;
+  font-weight: 100;
+  margin: 0;
+}
+
+.info-container .experience .experience_time {
+  display: flex;
+  justify-content: space-between;
+  color: white;
+}
+
+.info-container .experience .experience_time p:nth-child(1){
+  opacity: 1;
+  font-size: 21px;
+  margin: 5px 0;
+}
+.info-container .experience .experience_time p:nth-child(2) {
+  opacity: 0.4;
+  margin: 5px 0;
+}
 /************ MEDIA QUERIES ****************/
 
 @media (min-width: 641px) and (max-width: 768px) {

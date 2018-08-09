@@ -851,9 +851,10 @@ body {
 
 
 .info-container .experience {
-    display: flex;
-    flex-direction: column;
-    margin: 10px 0;
+  display: flex;
+  flex-direction: column;
+  margin: 10px 0;
+  overflow: hidden;
 }
 
 .info-container .experience > p {
@@ -869,6 +870,10 @@ body {
   color: white;
 }
 
+.animate-time {
+  animation: move 1s ease-in-out 0s 1 normal forwards;
+}
+
 .info-container .experience .experience_time p:nth-child(1){
   opacity: 1;
   font-size: 21px;
@@ -877,6 +882,7 @@ body {
 .info-container .experience .experience_time p:nth-child(2) {
   opacity: 0.4;
   margin: 5px 0;
+  font-size: 13px;
 }
 /************ MEDIA QUERIES ****************/
 
@@ -1190,3 +1196,27 @@ body {
     page-break-after: avoid;
   }
 }
+
+/* keyframes */
+@keyframes move {
+  0% {
+    transform: translateY(-100px);
+  }
+
+  25% {
+    transform: translateY(-2px);
+  }
+
+  50% {
+    transform: translateY(2px);
+  }
+
+  75% {
+    transform: translateY(-5px);
+  }
+
+  to {
+    transform: translateY(0px);
+  }
+}
+/*************/

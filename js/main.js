@@ -1,5 +1,6 @@
 // Set the date we're counting down to
 var careerStartDate = new Date("Feb 16, 2015 12:00:00").getTime();
+var prevDay, prevHour, prevMinute, prevSecond;
 
 function parseString(datum) {
     return datum.toLocaleString(undefined, {
@@ -11,6 +12,13 @@ document.addEventListener("DOMContentLoaded", updateTime);
 
 // Update the count down every 1 second
 setInterval(updateTime, 1000);
+
+function animateAndPlay(element, string) {
+    element.innerHTML = string;
+    element.classList.remove("animate-time");
+    void element.offsetWidth;
+    element.classList.add("animate-time");
+}
 
 function updateTime() {
 
@@ -33,8 +41,30 @@ function updateTime() {
     // Display the result in the element with id="demo"
     document.querySelector(".years").innerHTML = parseString(years);
     document.querySelector(".months").innerHTML = parseString(months);
-    document.querySelector(".days").innerHTML = parseString(days);
-    document.querySelector(".hours").innerHTML = parseString(hours);
-    document.querySelector(".minutes").innerHTML = parseString(minutes);
-    document.querySelector(".seconds").innerHTML = parseString(seconds);
+    if(prevDay !== days) {
+        prevDay = days;
+        var element = document.querySelector(".days");
+        animateAndPlay(element, parseString(days));
+    }
+    if (prevHour !== hours) {
+        prevHour = hours;
+        var element = document.querySelector(".hours");
+        animateAndPlay(element, parseString(hours));
+    }
+    if (prevMinute !== minutes) {
+        prevMinute = minutes;
+        var element = document.querySelector(".minutes");
+        animateAndPlay(element, parseString(minutes));
+    }
+    if (prevSecond !== seconds) {
+        prevSecond = seconds;
+        var element = document.querySelector(".seconds");
+        animateAndPlay(element, parseString(seconds));
+    }
+    if (!prevDay) {
+        prevDay = days;
+        prevHour = hours;
+        prevMinute = minutes;
+        prevSecond = seconds;
+    }
 }

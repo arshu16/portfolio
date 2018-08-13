@@ -28,10 +28,17 @@ function getSydneyDate() {
     return sydneyDate;
 }
 
+function getDelhiDate() {
+    const d = new Date();
+    const utc = d.getTime() + d.getTimezoneOffset() * 60000;
+    let delhiDate = new Date(utc + 3600000 * 5.5);
+    return delhiDate;
+}
+
 function init() {
     function refreshClock() {
         clock('sydney', getSydneyDate()); 
-        clock('delhi', new Date());
+        clock('delhi', getDelhiDate());
         setTimeout(refreshClock, 1000);
     }
     refreshClock();
